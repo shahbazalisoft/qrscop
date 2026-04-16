@@ -29,7 +29,6 @@
                             <a href="{{route('restaurant.create')}}" class="btn btn-warning btn-lg me-3">Get Started Free</a>
                             <a href="#how-it-works" class="btn btn-outline-light btn-lg">See How It Works</a>
                         </div>
-                        
                         <div class="hero-stats mt-4">
                             <div class="stat-item">
                                 <h3>500+</h3>
