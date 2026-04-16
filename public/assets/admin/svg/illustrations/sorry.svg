@@ -1,0 +1,29 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Empty plate/dish base -->
+  <ellipse cx="100" cy="140" rx="70" ry="20" fill="#E8E8E8"/>
+  <ellipse cx="100" cy="135" rx="60" ry="16" fill="#F5F5F5"/>
+  <ellipse cx="100" cy="130" rx="50" ry="12" fill="#FAFAFA"/>
+
+  <!-- Document/list icon -->
+  <rect x="65" y="45" width="70" height="85" rx="5" fill="#E0E0E0"/>
+  <rect x="70" y="50" width="60" height="75" rx="3" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1"/>
+
+  <!-- Lines representing empty list -->
+  <rect x="80" y="62" width="40" height="4" rx="2" fill="#E0E0E0"/>
+  <rect x="80" y="74" width="35" height="4" rx="2" fill="#E0E0E0"/>
+  <rect x="80" y="86" width="38" height="4" rx="2" fill="#E0E0E0"/>
+  <rect x="80" y="98" width="30" height="4" rx="2" fill="#E0E0E0"/>
+
+  <!-- Magnifying glass -->
+  <circle cx="130" cy="95" r="18" stroke="#FF6B6B" stroke-width="4" fill="none"/>
+  <line x1="143" y1="108" x2="155" y2="120" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- X mark inside magnifying glass -->
+  <line x1="123" y1="88" x2="137" y2="102" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="137" y1="88" x2="123" y2="102" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Small decorative dots -->
+  <circle cx="45" cy="70" r="3" fill="#BDBDBD"/>
+  <circle cx="155" cy="55" r="2" fill="#BDBDBD"/>
+  <circle cx="50" cy="110" r="2" fill="#BDBDBD"/>
+</svg>

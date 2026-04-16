@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour House - Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu-common.css">
+    <link rel="stylesheet" href="cart-common.css">
+    <link rel="stylesheet" href="item-detail-common.css">
+    <style>
+        /* ===== WHITE THEME VARIABLES ===== */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-muted: #999999;
+            --accent: #10847e;
+            --accent-light: #13a89f;
+            --accent-dark: #0d6b66;
+            --veg: #0a8a0a;
+            --non-veg: #b91c1c;
+            --star-color: #f59e0b;
+            --border-color: #e5e5e5;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding-bottom: 100px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--bg-primary);
+            padding: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        .header-btn {
+            width: 44px;
+            height: 44px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e53935;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-badge:empty,
+        .cart-badge[data-count="0"] {
+            display: none;
+        }
+
+        /* ===== BANNER ===== */
+        .banner-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .banner-carousel {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .banner-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+        }
+
+        .banner-tag {
+            display: inline-block;
+            background: var(--accent);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .banner-overlay h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 2px;
+        }
+
+        .banner-overlay p {
+            font-size: 0.8rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .banner-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 5;
+        }
+
+        .banner-dots .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .banner-dots .dot.active {
+            width: 20px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .banner-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s ease;
+            z-index: 5;
+        }
+
+        .banner-carousel:hover .banner-nav {
+            opacity: 1;
+        }
+
+        .banner-nav.prev { left: 10px; }
+        .banner-nav.next { right: 10px; }
+
+        /* ===== SEARCH BOX ===== */
+        .search-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px 16px;
+            display: none;
+        }
+
+        .search-section.active {
+            display: block;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(16, 132, 126, 0.1);
+        }
+
+        .search-box i {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box .clear-btn {
+            width: 28px;
+            height: 28px;
+            background: var(--text-muted);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .search-box .clear-btn i {
+            color: white;
+            font-size: 0.85rem;
+            line-height: 1;
+        }
+
+        .search-box .clear-btn.visible {
+            display: flex;
+        }
+
+        .search-box .clear-btn:hover {
+            background: var(--text-secondary);
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-content {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* ===== LEFT SIDEBAR ===== */
+        .category-sidebar {
+            width: 80px;
+            min-width: 80px;
+            background: var(--bg-primary);
+            border-right: 1px solid var(--border-color);
+            position: sticky;
+            top: 85px;
+            height: calc(100vh - 85px);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .category-sidebar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            padding: 8px 0;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .category-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: transparent;
+            border-radius: 0 4px 4px 0;
+            transition: all 0.2s ease;
+        }
+
+        .category-item:hover {
+            background: var(--bg-secondary);
+        }
+
+        .category-item.active {
+            background: rgba(16, 132, 126, 0.08);
+        }
+
+        .category-item.active::before {
+            background: var(--accent);
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .category-item.active .category-icon {
+            border-color: var(--accent);
+        }
+
+        .category-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-name {
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.2;
+            max-width: 65px;
+            word-wrap: break-word;
+            transition: all 0.2s ease;
+        }
+
+        .category-item.active .category-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== PRODUCTS AREA ===== */
+        .products-area {
+            flex: 1;
+            padding: 16px;
+            background: var(--bg-secondary);
+            min-height: calc(100vh - 85px);
+        }
+
+        /* ===== MENU SECTION ===== */
+        .menu-section {
+            margin-bottom: 20px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .section-header h2 i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .item-count {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== TWO COLUMN GRID ===== */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        /* ===== MENU CARD ===== */
+        .menu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .add-cart-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(16, 132, 126, 0.3);
+        }
+
+        .add-cart-btn:hover {
+            background: var(--accent-dark);
+            transform: scale(1.1);
+        }
+
+        .add-cart-btn.added {
+            background: #22c55e;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-secondary);
+            cursor: pointer;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .item-type {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            border: 2px solid;
+            background: white;
+            z-index: 2;
+        }
+
+        .item-type.veg {
+            border-color: var(--veg);
+        }
+
+        .item-type.veg::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: var(--veg);
+            border-radius: 50%;
+        }
+
+        .item-type.non-veg {
+            border-color: var(--non-veg);
+        }
+
+        .item-type.non-veg::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 6px solid var(--non-veg);
+        }
+
+        .card-content {
+            padding: 12px;
+        }
+
+        .card-title {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 34px;
+            cursor: pointer;
+        }
+
+        .card-title:hover {
+            color: var(--accent);
+        }
+
+        .card-pricing {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .mrp {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .discount {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: white;
+            background: var(--accent);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .card-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* ===== CART BAR ===== */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--accent);
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cart-info {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .cart-items-count {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .cart-total {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .view-cart-btn {
+            background: white;
+            border: none;
+            color: var(--accent);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .view-cart-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-card {
+            animation: fadeInUp 0.4s ease forwards;
+            opacity: 0;
+        }
+
+        .menu-card:nth-child(1) { animation-delay: 0.05s; }
+        .menu-card:nth-child(2) { animation-delay: 0.1s; }
+        .menu-card:nth-child(3) { animation-delay: 0.15s; }
+        .menu-card:nth-child(4) { animation-delay: 0.2s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .category-sidebar {
+                width: 70px;
+                min-width: 70px;
+            }
+
+            .category-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .category-name {
+                font-size: 0.55rem;
+                max-width: 55px;
+            }
+
+            .products-area {
+                padding: 10px;
+            }
+
+            .menu-grid {
+                gap: 8px;
+            }
+
+            .card-image {
+                height: 100px;
+            }
+
+            .card-content {
+                padding: 10px;
+            }
+
+            .card-title {
+                font-size: 0.75rem;
+                min-height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon"><i class="bi bi-fire"></i></span>
+                <div class="logo-text">
+                    <h1>Flavour House</h1>
+                    <span>Taste the Excellence</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" id="search-toggle-btn"><i class="bi bi-search"></i></button>
+                <button class="header-btn" id="cart-toggle-btn">
+                    <i class="bi bi-cart3"></i>
+                    <span class="cart-badge" id="header-cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Carousel -->
+    <div class="banner-section">
+        <div class="banner-carousel">
+            <div class="banner-track">
+                <div class="banner-slide">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=400&fit=crop" alt="Special Offer">
+                    <div class="banner-overlay">
+                        <span class="banner-tag">Limited Time</span>
+                        <h3>50% OFF on First Order</h3>
+                        <p>Use code: FIRST50</p>
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=400&fit=crop" alt="Pizza Special">
+                    <div class="banner-overlay">
+                        <span class="banner-tag">Weekend Special</span>
+                        <h3>Buy 1 Get 1 Free</h3>
+                        <p>On all Pizzas</p>
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=400&fit=crop" alt="Dessert Deal">
+                    <div class="banner-overlay">
+                        <span class="banner-tag">Sweet Deal</span>
+                        <h3>Free Dessert</h3>
+                        <p>On orders above ₹500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="banner-nav prev"><i class="bi bi-chevron-left"></i></button>
+            <button class="banner-nav next"><i class="bi bi-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Search Box (Hidden by default) -->
+    <div class="search-section" id="search-section">
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search for dishes, cuisines..." id="search-input">
+            <button class="clear-btn" id="clear-search"><i class="bi bi-x-lg"></i></button>
+        </div>
+    </div>
+
+    <!-- Main Content with Sidebar -->
+    <main class="main-content">
+        <!-- Left Category Sidebar -->
+        <aside class="category-sidebar">
+            <div class="category-list">
+                <button class="category-item active" data-category="all">
+                    <div class="category-icon">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=100&h=100&fit=crop" alt="All">
+                    </div>
+                    <span class="category-name">All</span>
+                </button>
+                <button class="category-item" data-category="recommended">
+                    <div class="category-icon">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=100&h=100&fit=crop" alt="Recommended">
+                    </div>
+                    <span class="category-name">Recommended</span>
+                </button>
+                <button class="category-item" data-category="starters">
+                    <div class="category-icon">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=100&h=100&fit=crop" alt="Starters">
+                    </div>
+                    <span class="category-name">Starters</span>
+                </button>
+                <button class="category-item" data-category="mains">
+                    <div class="category-icon">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=100&h=100&fit=crop" alt="Main Course">
+                    </div>
+                    <span class="category-name">Main Course</span>
+                </button>
+                <button class="category-item" data-category="desserts">
+                    <div class="category-icon">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=100&h=100&fit=crop" alt="Desserts">
+                    </div>
+                    <span class="category-name">Desserts</span>
+                </button>
+                <button class="category-item" data-category="drinks">
+                    <div class="category-icon">
+                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=100&h=100&fit=crop" alt="Drinks">
+                    </div>
+                    <span class="category-name">Drinks</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Products Area -->
+        <div class="products-area">
+            <!-- Recommended Section -->
+            <section class="menu-section" id="recommended" data-category="recommended">
+                <div class="section-header">
+                    <h2><i class="bi bi-star-fill"></i> Recommended</h2>
+                    <span class="item-count">4 items</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card" data-category="recommended">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300&h=300&fit=crop" alt="Butter Chicken">
+                            <div class="item-type non-veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Butter Chicken</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹449</s></span>
+                                <span class="discount">22% OFF</span>
+                            </div>
+                            <div class="card-price">₹349</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="recommended">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&fit=crop" alt="Margherita Pizza">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Margherita Pizza</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹399</s></span>
+                                <span class="discount">25% OFF</span>
+                            </div>
+                            <div class="card-price">₹299</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="recommended">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=300&h=300&fit=crop" alt="Hyderabadi Biryani">
+                            <div class="item-type non-veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Hyderabadi Biryani</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹499</s></span>
+                                <span class="discount">20% OFF</span>
+                            </div>
+                            <div class="card-price">₹399</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="recommended">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=300&h=300&fit=crop" alt="Grilled Salmon">
+                            <div class="item-type non-veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Grilled Salmon</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹749</s></span>
+                                <span class="discount">20% OFF</span>
+                            </div>
+                            <div class="card-price">₹599</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Starters Section -->
+            <section class="menu-section" id="starters" data-category="starters">
+                <div class="section-header">
+                    <h2><i class="bi bi-lightning-fill"></i> Starters</h2>
+                    <span class="item-count">4 items</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card" data-category="starters">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=300&h=300&fit=crop" alt="Paneer Tikka">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Paneer Tikka</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹299</s></span>
+                                <span class="discount">17% OFF</span>
+                            </div>
+                            <div class="card-price">₹249</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="starters">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300&h=300&fit=crop" alt="Crispy Samosa">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Crispy Samosa</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹99</s></span>
+                                <span class="discount">20% OFF</span>
+                            </div>
+                            <div class="card-price">₹79</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="starters">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&h=300&fit=crop" alt="Buffalo Wings">
+                            <div class="item-type non-veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Buffalo Wings</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹399</s></span>
+                                <span class="discount">25% OFF</span>
+                            </div>
+                            <div class="card-price">₹299</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="starters">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=300&h=300&fit=crop" alt="Spring Rolls">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Spring Rolls</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹179</s></span>
+                                <span class="discount">17% OFF</span>
+                            </div>
+                            <div class="card-price">₹149</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Course Section -->
+            <section class="menu-section" id="mains" data-category="mains">
+                <div class="section-header">
+                    <h2><i class="bi bi-egg-fried"></i> Main Course</h2>
+                    <span class="item-count">4 items</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card" data-category="mains">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&h=300&fit=crop" alt="Dal Makhani">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Dal Makhani</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹279</s></span>
+                                <span class="discount">18% OFF</span>
+                            </div>
+                            <div class="card-price">₹229</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="mains">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=300&h=300&fit=crop" alt="Palak Paneer">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Palak Paneer</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹329</s></span>
+                                <span class="discount">18% OFF</span>
+                            </div>
+                            <div class="card-price">₹269</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="mains">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=300&h=300&fit=crop" alt="Garlic Naan">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Garlic Naan</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹89</s></span>
+                                <span class="discount">22% OFF</span>
+                            </div>
+                            <div class="card-price">₹69</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="mains">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=300&h=300&fit=crop" alt="Tandoori Roti">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Tandoori Roti</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹49</s></span>
+                                <span class="discount">20% OFF</span>
+                            </div>
+                            <div class="card-price">₹39</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desserts Section -->
+            <section class="menu-section" id="desserts" data-category="desserts">
+                <div class="section-header">
+                    <h2><i class="bi bi-cake2-fill"></i> Desserts</h2>
+                    <span class="item-count">4 items</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card" data-category="desserts">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=300&fit=crop" alt="Fluffy Pancakes">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Fluffy Pancakes</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹229</s></span>
+                                <span class="discount">22% OFF</span>
+                            </div>
+                            <div class="card-price">₹179</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="desserts">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop" alt="Blueberry Cheesecake">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Blueberry Cheesecake</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹249</s></span>
+                                <span class="discount">20% OFF</span>
+                            </div>
+                            <div class="card-price">₹199</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="desserts">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&h=300&fit=crop" alt="Gulab Jamun">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Gulab Jamun</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹129</s></span>
+                                <span class="discount">23% OFF</span>
+                            </div>
+                            <div class="card-price">₹99</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="desserts">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=300&fit=crop" alt="Ice Cream">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Chocolate Ice Cream</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹149</s></span>
+                                <span class="discount">20% OFF</span>
+                            </div>
+                            <div class="card-price">₹119</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drinks Section -->
+            <section class="menu-section" id="drinks" data-category="drinks">
+                <div class="section-header">
+                    <h2><i class="bi bi-cup-straw"></i> Drinks</h2>
+                    <span class="item-count">4 items</span>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card" data-category="drinks">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&h=300&fit=crop" alt="Masala Chai">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Masala Chai</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹59</s></span>
+                                <span class="discount">17% OFF</span>
+                            </div>
+                            <div class="card-price">₹49</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="drinks">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=300&fit=crop" alt="Cold Coffee">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Cold Coffee</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹159</s></span>
+                                <span class="discount">19% OFF</span>
+                            </div>
+                            <div class="card-price">₹129</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="drinks">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=300&fit=crop" alt="Mango Lassi">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Mango Lassi</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹129</s></span>
+                                <span class="discount">23% OFF</span>
+                            </div>
+                            <div class="card-price">₹99</div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="drinks">
+                        <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=300&h=300&fit=crop" alt="Fresh Orange Juice">
+                            <div class="item-type veg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Fresh Orange Juice</h3>
+                            <div class="card-pricing">
+                                <span class="mrp">MRP <s>₹109</s></span>
+                                <span class="discount">18% OFF</span>
+                            </div>
+                            <div class="card-price">₹89</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bottom Cart Bar -->
+    <div class="cart-bar" style="display: none;">
+        <div class="cart-info">
+            <span class="cart-items-count">0 Items</span>
+            <span class="cart-total">₹0</span>
+        </div>
+        <button class="view-cart-btn">
+            View Cart
+            <i class="bi bi-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Cart Section (Bottom Sheet) -->
+    <div class="cart-overlay"></div>
+    <div class="cart-section">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <div class="cart-header-actions">
+                <button class="cart-fullscreen-btn" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+                <button class="cart-close-btn">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-amount">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>₹40</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span class="total-amount">₹40</span>
+                </div>
+            </div>
+            <button class="checkout-btn">
+                Proceed to Checkout
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="cart-common.js"></script>
+    <script src="item-detail-common.js"></script>
+    <script src="menu_style10.js"></script>
+</body>
+</html>

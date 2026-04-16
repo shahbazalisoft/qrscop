@@ -1,0 +1,207 @@
+/* ===== SIZE PICKER COMMON STYLES ===== */
+/* Uses CSS variables with fallbacks for theme compatibility */
+
+.sizepicker-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 220;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+.sizepicker-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sizepicker-popup {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--sp-bg, var(--cart-section-bg, #fff));
+    border-radius: 20px 20px 0 0;
+    z-index: 230;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+}
+.sizepicker-popup.active {
+    transform: translateY(0);
+}
+
+.sizepicker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.sizepicker-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--sp-text, var(--cart-text, #1a1a1a));
+}
+.sizepicker-title i {
+    color: var(--sp-accent, var(--cart-accent, #10847e));
+    font-size: 1.15rem;
+}
+
+.sizepicker-close {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--sp-surface2, var(--cart-btn-secondary, #f0f0f0));
+    border: none;
+    color: var(--sp-text2, var(--cart-text-muted, #666));
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+}
+
+.sizepicker-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sizepicker-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: var(--sp-surface, var(--cart-section-bg, #fff));
+    border: 2px solid var(--sp-border, var(--cart-border, #e5e5e5));
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+}
+.sizepicker-btn:hover {
+    border-color: var(--sp-accent, var(--cart-accent, #10847e));
+}
+
+.sizepicker-radio {
+    width: 22px; height: 22px; min-width: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--sp-border, var(--cart-border, #ccc));
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s ease;
+    background: transparent;
+}
+.sizepicker-radio::after {
+    content: '';
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--sp-accent, var(--cart-accent, #10847e));
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sizepicker-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sp-text, var(--cart-text, #1a1a1a));
+    flex: 1;
+}
+
+.sizepicker-price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--sp-accent, var(--cart-accent, #10847e));
+    margin-left: auto;
+}
+
+.sizepicker-btn.active {
+    border-color: var(--sp-accent, var(--cart-accent, #10847e));
+    background: var(--sp-accent-light, var(--cart-btn-secondary, rgba(16, 132, 126, 0.08)));
+}
+.sizepicker-btn.active .sizepicker-radio {
+    border-color: var(--sp-accent, var(--cart-accent, #10847e));
+}
+.sizepicker-btn.active .sizepicker-radio::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sizepicker-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--sp-border, var(--cart-border, #e5e5e5));
+}
+
+.sizepicker-qty {
+    display: flex;
+    align-items: center;
+    background: var(--sp-surface2, var(--cart-btn-secondary, #f5f5f5));
+    border: 1.5px solid var(--sp-border, var(--cart-border, #e5e5e5));
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.sizepicker-minus,
+.sizepicker-plus {
+    width: 40px; height: 40px;
+    border: none; background: none;
+    color: var(--sp-text, var(--cart-text, #1a1a1a));
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+}
+.sizepicker-minus:hover,
+.sizepicker-plus:hover {
+    color: var(--sp-accent, var(--cart-accent, #10847e));
+    background: var(--sp-accent-light, rgba(16, 132, 126, 0.08));
+}
+
+.sizepicker-qty-val {
+    min-width: 28px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--sp-text, var(--cart-text, #1a1a1a));
+}
+
+.sizepicker-add {
+    flex: 1;
+    padding: 13px;
+    background: var(--sp-accent, var(--cart-btn-bg, #10847e));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+.sizepicker-add:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sizepicker-mrp {
+    color: var(--sp-text2, var(--cart-text-muted, #999));
+    font-weight: 400;
+    font-size: 0.85rem;
+    margin-right: 4px;
+}
+
+.sizepicker-disc-price {
+    color: var(--sp-accent, var(--cart-accent, #10847e));
+    font-weight: 700;
+}

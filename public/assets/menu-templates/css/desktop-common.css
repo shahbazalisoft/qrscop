@@ -1,0 +1,99 @@
+/* ===== DESKTOP: Tablet-like constrained layout (common) ===== */
+@media (min-width: 601px) {
+    html {
+        background: var(--desktop-bg, #e8e8ec);
+    }
+
+    body {
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Fixed elements */
+    .header {
+        max-width: 500px;
+        left: 0; right: 0;
+        margin: 0 auto;
+    }
+
+    .category-nav {
+        max-width: 500px;
+        left: 0; right: 0;
+        margin: 0 auto;
+    }
+
+    .cart-bar {
+        max-width: 500px;
+        width: 100%;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        border-radius: 16px 16px 0 0;
+    }
+    .cart-bar.hidden {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    .orders-fab-btn {
+        right: calc(50% - 230px);
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+        max-width: 500px;
+        width: 100%;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        border-radius: 16px 16px 0 0;
+    }
+    .bottom-nav.hidden {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    /* Overlays */
+    .item-detail-overlay,
+    .sizepicker-overlay,
+    .item-detail-loader,
+    .cart-overlay,
+    .orders-overlay,
+    .delivery-form-overlay,
+    .thankyou-overlay,
+    .specials-popup-overlay {
+        max-width: 500px;
+        left: 0; right: 0;
+        margin: 0 auto;
+    }
+
+    /* Bottom-sheet popups */
+    .item-detail-popup,
+    .sizepicker-popup,
+    .cart-section,
+    .orders-section,
+    .delivery-form-section,
+    .thankyou-section,
+    .specials-popup {
+        max-width: 500px;
+        width: 100%;
+        left: 50%;
+        right: auto;
+        margin-left: 0;
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    .item-detail-popup.active,
+    .sizepicker-popup.active,
+    .cart-section.active,
+    .orders-section.active,
+    .delivery-form-section.active,
+    .thankyou-section.active,
+    .specials-popup.active {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .cart-section.fullscreen {
+        transform: translateX(-50%) translateY(0);
+    }
+}

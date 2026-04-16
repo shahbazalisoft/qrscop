@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" rx="20" fill="#FCE4EC"/>
+  <!-- Plate -->
+  <ellipse cx="100" cy="155" rx="70" ry="12" fill="#E0E0E0"/>
+  <ellipse cx="100" cy="153" rx="65" ry="10" fill="#F5F5F5"/>
+  <!-- Bottom layer -->
+  <rect x="50" y="115" width="100" height="38" rx="5" fill="#FFAB91"/>
+  <rect x="50" y="115" width="100" height="8" rx="3" fill="#FF8A65"/>
+  <!-- Middle layer -->
+  <rect x="55" y="85" width="90" height="34" rx="5" fill="#F48FB1"/>
+  <rect x="55" y="85" width="90" height="8" rx="3" fill="#F06292"/>
+  <!-- Top layer -->
+  <rect x="60" y="58" width="80" height="30" rx="5" fill="#CE93D8"/>
+  <rect x="60" y="58" width="80" height="8" rx="3" fill="#BA68C8"/>
+  <!-- Frosting drips -->
+  <path d="M60 58 Q62 52 66 58 Q70 52 74 58 Q78 50 82 58 Q86 52 90 58 Q94 50 98 58 Q102 52 106 58 Q110 52 114 58 Q118 50 122 58 Q126 52 130 58 Q134 52 138 58 Q140 52 140 58" fill="#E1BEE7" stroke="none"/>
+  <!-- Cherry on top -->
+  <circle cx="100" cy="48" r="8" fill="#E53935"/>
+  <circle cx="97" cy="45" r="2" fill="#EF9A9A" opacity="0.7"/>
+  <!-- Stem -->
+  <path d="M100 40 Q105 32 108 28" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round"/>
+  <!-- Candle -->
+  <rect x="97" y="35" width="6" height="20" rx="3" fill="#FFF9C4"/>
+  <ellipse cx="100" cy="33" rx="4" ry="6" fill="#FF9800"/>
+  <ellipse cx="100" cy="31" rx="2" ry="4" fill="#FFEB3B"/>
+  <!-- Sprinkles -->
+  <rect x="70" y="95" width="6" height="2" rx="1" fill="#FFF176" transform="rotate(30 73 96)"/>
+  <rect x="85" y="100" width="6" height="2" rx="1" fill="#80DEEA" transform="rotate(-20 88 101)"/>
+  <rect x="110" y="92" width="6" height="2" rx="1" fill="#A5D6A7" transform="rotate(45 113 93)"/>
+  <rect x="125" y="98" width="6" height="2" rx="1" fill="#FFF176" transform="rotate(-10 128 99)"/>
+</svg>

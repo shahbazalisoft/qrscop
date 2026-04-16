@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavour House - Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu_style8.css">
+    <!-- Common Cart CSS -->
+    <link rel="stylesheet" href="cart-common.css">
+    <link rel="stylesheet" href="item-detail-common.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon"><i class="bi bi-fire"></i></span>
+                <div class="logo-text">
+                    <h1>Flavour House</h1>
+                    <span>Taste the Excellence</span>
+                </div>
+            </div>
+            <button class="search-btn"><i class="bi bi-search"></i></button>
+        </div>
+    </header>
+
+    <!-- Banner Carousel -->
+    <div class="banner-section">
+        <div class="banner-carousel">
+            <div class="banner-track">
+                <div class="banner-slide">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=400&fit=crop" alt="Special Offer">
+                    <div class="banner-overlay">
+                        <span class="banner-tag">Limited Time</span>
+                        <h3>50% OFF on First Order</h3>
+                        <p>Use code: FIRST50</p>
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=400&fit=crop" alt="Pizza Special">
+                    <div class="banner-overlay">
+                        <span class="banner-tag">Weekend Special</span>
+                        <h3>Buy 1 Get 1 Free</h3>
+                        <p>On all Pizzas</p>
+                    </div>
+                </div>
+                <div class="banner-slide">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800&h=400&fit=crop" alt="Dessert Deal">
+                    <div class="banner-overlay">
+                        <span class="banner-tag">Sweet Deal</span>
+                        <h3>Free Dessert</h3>
+                        <p>On orders above ₹500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="banner-nav prev"><i class="bi bi-chevron-left"></i></button>
+            <button class="banner-nav next"><i class="bi bi-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Category Pills -->
+    <nav class="category-nav">
+        <div class="category-pills">
+            <button class="pill active" data-category="all">All</button>
+            <button class="pill" data-category="recommended">Recommended</button>
+            <div class="more-menu">
+                <button class="more-btn"><i class="bi bi-grid"></i> More</button>
+                <div class="more-dropdown">
+                    <button class="dropdown-item" data-category="starters"><i class="bi bi-lightning-fill"></i> Starters</button>
+                    <button class="dropdown-item" data-category="mains"><i class="bi bi-egg-fried"></i> Main Course</button>
+                    <button class="dropdown-item" data-category="desserts"><i class="bi bi-cake2-fill"></i> Desserts</button>
+                    <button class="dropdown-item" data-category="drinks"><i class="bi bi-cup-straw"></i> Drinks</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Recommended Section -->
+        <section class="menu-section" id="recommended">
+            <div class="section-header">
+                <h2><i class="bi bi-star-fill"></i> Recommended</h2>
+                <span class="item-count">4 items</span>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <button class="add-cart-btn added"><i class="bi bi-check"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=300&h=300&fit=crop" alt="Butter Chicken">
+                        <div class="item-type non-veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Butter Chicken</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;449</s></span>
+                            <span class="discount">22% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;349</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&fit=crop" alt="Margherita Pizza">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Margherita Pizza</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;399</s></span>
+                            <span class="discount">25% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;299</div>
+                    </div>
+                </div>
+
+                <div class="menu-card has-sizes" data-item="Hyderabadi Biryani" data-quarter="199" data-half="299" data-full="399">
+                    <button class="add-cart-btn size-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=300&h=300&fit=crop" alt="Hyderabadi Biryani">
+                        <div class="item-type non-veg"></div>
+                        <span class="size-tag">3 Sizes</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Hyderabadi Biryani</h3>
+                        <div class="card-pricing">
+                            <span class="starts-from">Starts from</span>
+                        </div>
+                        <div class="card-price">&#8377;199</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=300&h=300&fit=crop" alt="Grilled Salmon">
+                        <div class="item-type non-veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Grilled Salmon</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;749</s></span>
+                            <span class="discount">20% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;599</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Starters Section -->
+        <section class="menu-section" id="starters">
+            <div class="section-header">
+                <h2><i class="bi bi-lightning-fill"></i> Starters</h2>
+                <span class="item-count">4 items</span>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <button class="add-cart-btn added"><i class="bi bi-check"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=300&h=300&fit=crop" alt="Paneer Tikka">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Paneer Tikka</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;299</s></span>
+                            <span class="discount">17% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;249</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300&h=300&fit=crop" alt="Crispy Samosa">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Crispy Samosa</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;99</s></span>
+                            <span class="discount">20% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;79</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&h=300&fit=crop" alt="Buffalo Wings">
+                        <div class="item-type non-veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Buffalo Wings</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;399</s></span>
+                            <span class="discount">25% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;299</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=300&h=300&fit=crop" alt="Spring Rolls">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Spring Rolls</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;179</s></span>
+                            <span class="discount">17% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;149</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Course Section -->
+        <section class="menu-section" id="mains">
+            <div class="section-header">
+                <h2><i class="bi bi-egg-fried"></i> Main Course</h2>
+                <span class="item-count">4 items</span>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <button class="add-cart-btn added"><i class="bi bi-check"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&h=300&fit=crop" alt="Dal Makhani">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Dal Makhani</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;279</s></span>
+                            <span class="discount">18% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;229</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=300&h=300&fit=crop" alt="Palak Paneer">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Palak Paneer</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;329</s></span>
+                            <span class="discount">18% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;269</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=300&h=300&fit=crop" alt="Garlic Naan">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Garlic Naan</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;89</s></span>
+                            <span class="discount">22% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;69</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=300&h=300&fit=crop" alt="Tandoori Roti">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tandoori Roti</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;49</s></span>
+                            <span class="discount">20% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;39</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desserts Section -->
+        <section class="menu-section" id="desserts">
+            <div class="section-header">
+                <h2><i class="bi bi-cake2-fill"></i> Desserts</h2>
+                <span class="item-count">3 items</span>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=300&fit=crop" alt="Fluffy Pancakes">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fluffy Pancakes</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;229</s></span>
+                            <span class="discount">22% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;179</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=300&fit=crop" alt="Blueberry Cheesecake">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Blueberry Cheesecake</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;249</s></span>
+                            <span class="discount">20% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;199</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=300&h=300&fit=crop" alt="Gulab Jamun">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Gulab Jamun</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;129</s></span>
+                            <span class="discount">23% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;99</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks Section -->
+        <section class="menu-section" id="drinks">
+            <div class="section-header">
+                <h2><i class="bi bi-cup-straw"></i> Drinks</h2>
+                <span class="item-count">4 items</span>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&h=300&fit=crop" alt="Masala Chai">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Masala Chai</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;59</s></span>
+                            <span class="discount">17% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;49</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn added"><i class="bi bi-check"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=300&fit=crop" alt="Cold Coffee">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Cold Coffee</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;159</s></span>
+                            <span class="discount">19% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;129</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=300&fit=crop" alt="Mango Lassi">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Mango Lassi</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;129</s></span>
+                            <span class="discount">23% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;99</div>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <button class="add-cart-btn"><i class="bi bi-plus"></i></button>
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=300&h=300&fit=crop" alt="Fresh Orange Juice">
+                        <div class="item-type veg"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Fresh Orange Juice</h3>
+                        <div class="card-pricing">
+                            <span class="mrp">MRP <s>&#8377;109</s></span>
+                            <span class="discount">18% OFF</span>
+                        </div>
+                        <div class="card-price">&#8377;89</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Cart Bar -->
+    <div class="cart-bar" style="display: none;">
+        <div class="cart-info">
+            <span class="cart-items-count">0 Items</span>
+            <span class="cart-total">&#8377;0</span>
+        </div>
+        <button class="view-cart-btn">
+            View Cart
+            <i class="bi bi-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Cart Section (Bottom Sheet) -->
+    <div class="cart-overlay"></div>
+    <div class="cart-section">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <div class="cart-header-actions">
+                <button class="cart-fullscreen-btn" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+                <button class="cart-close-btn">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-amount">&#8377;0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>&#8377;40</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span class="total-amount">&#8377;40</span>
+                </div>
+            </div>
+            <button class="checkout-btn">
+                Proceed to Checkout
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Size Selection Popup -->
+    <div class="size-popup-overlay" id="sizePopupOverlay"></div>
+    <div class="size-popup" id="sizePopup">
+        <div class="popup-header">
+            <h4 id="popupItemName">Select Size</h4>
+            <button class="popup-close" id="popupClose"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="popup-body">
+            <div class="size-options">
+                <div class="size-option" data-size="quarter">
+                    <div class="size-icon quarter">
+                        <i class="bi bi-circle"></i>
+                    </div>
+                    <div class="size-info">
+                        <span class="size-name">Quarter</span>
+                        <span class="size-desc">Single serving</span>
+                    </div>
+                    <span class="size-price" id="quarterPrice">₹199</span>
+                    <button class="size-add-btn"><i class="bi bi-plus"></i></button>
+                </div>
+                <div class="size-option" data-size="half">
+                    <div class="size-icon half">
+                        <i class="bi bi-circle-half"></i>
+                    </div>
+                    <div class="size-info">
+                        <span class="size-name">Half</span>
+                        <span class="size-desc">For 1-2 persons</span>
+                    </div>
+                    <span class="size-price" id="halfPrice">₹299</span>
+                    <button class="size-add-btn"><i class="bi bi-plus"></i></button>
+                </div>
+                <div class="size-option" data-size="full">
+                    <div class="size-icon full">
+                        <i class="bi bi-circle-fill"></i>
+                    </div>
+                    <div class="size-info">
+                        <span class="size-name">Full</span>
+                        <span class="size-desc">For 2-3 persons</span>
+                    </div>
+                    <span class="size-price" id="fullPrice">₹399</span>
+                    <button class="size-add-btn"><i class="bi bi-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart-common.js"></script>
+    <script src="item-detail-common.js"></script>
+    <script src="menu_style8.js"></script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurt - Dark Minimal (No Images)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu_style2.css">
+    <!-- Common Cart CSS -->
+    <link rel="stylesheet" href="cart-common.css">
+    <link rel="stylesheet" href="item-detail-common.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <button class="menu-btn">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="logo">
+            <span class="logo-icon">🍽️</span>
+            <span class="logo-text">Restaurt</span>
+        </div>
+        <button class="search-btn">
+            <i class="bi bi-search"></i>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-wrapper">
+                    <i class="bi bi-search"></i>
+                    <input type="text" class="search-input" placeholder="Search for dishes..." autofocus>
+                    <button class="search-clear-btn" style="display: none;">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <button class="search-close-btn">Cancel</button>
+            </div>
+            <div class="search-results">
+                <div class="search-placeholder">
+                    <i class="bi bi-search"></i>
+                    <p>Search for your favorite dishes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banners Section -->
+    <div class="banners-scroll">
+        <div class="banner-img">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=200&fit=crop" alt="Special Offer">
+            <div class="banner-overlay">
+                <span class="banner-tag">50% OFF</span>
+                <p class="banner-label">First Order</p>
+            </div>
+        </div>
+        <div class="banner-img">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=200&fit=crop" alt="Free Delivery">
+            <div class="banner-overlay">
+                <span class="banner-tag">Free Delivery</span>
+                <p class="banner-label">Above ₹499</p>
+            </div>
+        </div>
+        <div class="banner-img">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&h=200&fit=crop" alt="Combo Deals">
+            <div class="banner-overlay">
+                <span class="banner-tag">Combo Deals</span>
+                <p class="banner-label">Save ₹150</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Category Navigation -->
+        <nav class="category-nav">
+            <button class="cat-btn active" data-category="recommended">Recommended</button>
+            <button class="cat-btn" data-category="starters">Starters</button>
+            <button class="cat-btn" data-category="main-course">Main Course</button>
+            <button class="cat-btn" data-category="desserts">Desserts</button>
+            <button class="cat-btn" data-category="beverages">Beverages</button>
+        </nav>
+
+        <!-- Recommended Section -->
+        <section class="menu-section" id="recommended">
+            <h2 class="section-title">Recommended</h2>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Margherita Pizza</h3>
+                    </div>
+                    <p class="item-desc">Classic italian pizza with fresh mozzarella, tomato sauce, and basil leaves</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹299</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item special">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="non-veg-badge"></span>
+                        <h3 class="item-name">Butter Chicken</h3>
+                        <span class="special-tag">Chef's Special</span>
+                    </div>
+                    <p class="item-desc">Tender chicken in rich, creamy tomato gravy with butter and aromatic spices</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹349</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Fluffy Pancakes</h3>
+                    </div>
+                    <p class="item-desc">Stack of fluffy pancakes served with maple syrup and fresh berries</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹199</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Starters Section -->
+        <section class="menu-section" id="starters">
+            <h2 class="section-title">Starters</h2>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Crispy Samosa</h3>
+                    </div>
+                    <p class="item-desc">Golden fried pastry filled with spiced potatoes and peas</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹79</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Paneer Tikka</h3>
+                    </div>
+                    <p class="item-desc">Marinated cottage cheese cubes grilled to perfection</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹249</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="non-veg-badge"></span>
+                        <h3 class="item-name">Buffalo Wings</h3>
+                    </div>
+                    <p class="item-desc">Crispy chicken wings tossed in spicy buffalo sauce</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹299</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Veg Spring Rolls</h3>
+                    </div>
+                    <p class="item-desc">Crispy rolls stuffed with mixed vegetables and noodles</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹149</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Course Section -->
+        <section class="menu-section" id="main-course">
+            <h2 class="section-title">Main Course</h2>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Dal Makhani</h3>
+                    </div>
+                    <p class="item-desc">Slow-cooked black lentils in creamy tomato gravy</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹229</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item special">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="non-veg-badge"></span>
+                        <h3 class="item-name">Hyderabadi Biryani</h3>
+                        <span class="special-tag">Bestseller</span>
+                    </div>
+                    <p class="item-desc">Aromatic basmati rice layered with tender meat and royal spices</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹399</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Garlic Naan</h3>
+                    </div>
+                    <p class="item-desc">Soft Indian bread topped with garlic and butter</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹59</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Palak Paneer</h3>
+                    </div>
+                    <p class="item-desc">Cottage cheese cubes in creamy spinach gravy</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹269</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Desserts Section -->
+        <section class="menu-section" id="desserts">
+            <h2 class="section-title">Desserts</h2>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Gulab Jamun</h3>
+                    </div>
+                    <p class="item-desc">Soft milk dumplings soaked in rose-flavored sugar syrup</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹99</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Blueberry Cheesecake</h3>
+                    </div>
+                    <p class="item-desc">Creamy New York style cheesecake with blueberry compote</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹199</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Belgian Chocolate</h3>
+                    </div>
+                    <p class="item-desc">Rich Belgian chocolate ice cream with chocolate chips</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹149</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beverages Section -->
+        <section class="menu-section" id="beverages">
+            <h2 class="section-title">Beverages</h2>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Masala Chai</h3>
+                    </div>
+                    <p class="item-desc">Traditional Indian spiced tea with aromatic spices</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹49</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Cold Coffee</h3>
+                    </div>
+                    <p class="item-desc">Chilled coffee blended with ice cream and chocolate</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹129</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Mango Lassi</h3>
+                    </div>
+                    <p class="item-desc">Refreshing yogurt drink blended with sweet mangoes</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹99</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <div class="item-header">
+                        <span class="veg-badge"></span>
+                        <h3 class="item-name">Fresh Orange Juice</h3>
+                    </div>
+                    <p class="item-desc">Freshly squeezed orange juice, no added sugar</p>
+                </div>
+                <div class="item-actions">
+                    <div class="item-price">
+                        <span class="price">₹89</span>
+                    </div>
+                    <button class="add-btn">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Cart Bar -->
+    <div class="cart-bar" style="display: none;">
+        <div class="cart-info">
+            <span class="cart-items-count">0 Items</span>
+            <span class="cart-total">₹0</span>
+        </div>
+        <button class="view-cart-btn">
+            View Cart
+            <i class="bi bi-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Cart Section (Bottom Sheet) -->
+    <div class="cart-overlay"></div>
+    <div class="cart-section">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <div class="cart-header-actions">
+                <button class="cart-fullscreen-btn" title="Fullscreen">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                </button>
+                <button class="cart-close-btn">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-amount">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>₹40</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span class="total-amount">₹40</span>
+                </div>
+            </div>
+            <button class="checkout-btn">
+                Proceed to Checkout
+                <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart-common.js"></script>
+    <script src="item-detail-common.js"></script>
+    <script src="menu_style2.js"></script>
+</body>
+</html>
